@@ -26,3 +26,8 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.App-header-button {
+  all: initial;
+  padding: 0 0.5rem;
+}
