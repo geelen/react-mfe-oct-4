@@ -1,16 +1,17 @@
 import logo from './logo.svg'
 import React from 'react'
+import styles from './AppHeader.css'
 
 const AppHeader = ({ greeting, onClick }) => (
-  <header className={`App-header`}>
+  <header className={styles.header}>
     <img src={logo}
-         className="App-logo"
+         className={styles.logo}
          alt="logo"/>
-    <h1 className="App-title">
+    <h1 className={styles.title}>
       {greeting}
       <button type="button"
               onClick={onClick}
-              className="App-header-button">
+              className={styles.button}>
         <span role="img"
               aria-label="Switch language">
           ℹ️
