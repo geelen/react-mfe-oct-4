@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { observer } from 'mobx-react'
 
+import { images_store } from '../store'
 import { loadImages } from '../actions'
-import { connect } from 'react-redux'
 
 const Outer = styled.div`
   display: flex;
@@ -22,12 +23,12 @@ const Image = styled.img`
 
 class ImageFeed extends React.Component {
   componentDidMount() {
-    this.props.onMount()
+    loadImages()
   }
 
   render() {
     console.log("Rendering Image Feed")
-    const { images, loading } = this.props
+    const { images, loading } = images_store
     return (
       <Outer>
         {
@@ -42,12 +43,4 @@ class ImageFeed extends React.Component {
   }
 }
 
-export default connect(
-  state => ({
-    images: state.images,
-    loading: state.loading,
-  }),
-  {
-    onMount: loadImages
-  }
-)(ImageFeed)
+export default observer(ImageFeed)

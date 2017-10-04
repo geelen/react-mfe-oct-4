@@ -1,16 +1,13 @@
 import API from './api'
+import { images_store } from './store'
+import { runInAction } from 'mobx'
 
-const newVar = async (dispatch) => {
-  dispatch({
-    type: 'IMAGES_LOADING'
-  })
-
+export const loadImages = async () => {
+  images_store.loading = true
   const images = await API.loadImages()
 
-  dispatch({
-    type: 'IMAGES_LOADED_SUCCESSFULLY',
-    result: images
+  runInAction(() => {
+    images_store.images = images
+    images_store.loading = false
   })
 }
-
-export const loadImages = () => newVar
