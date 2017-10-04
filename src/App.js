@@ -12,7 +12,10 @@ const AppHeader = ({ greeting, onClick }) => (
       <button type="button"
               onClick={onClick}
               className="App-header-button">
-        ℹ️
+        <span role="img"
+              aria-label="Switch language">
+          ℹ️
+        </span>
       </button>
     </h1>
   </header>
